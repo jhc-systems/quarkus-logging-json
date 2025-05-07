@@ -6,12 +6,12 @@ import java.io.PrintWriter;
 import org.jboss.logmanager.ExtFormatter;
 import org.jboss.logmanager.ExtLogRecord;
 
-import io.quarkiverse.loggingjson.Config;
 import io.quarkiverse.loggingjson.Enabled;
 import io.quarkiverse.loggingjson.JsonGenerator;
 import io.quarkiverse.loggingjson.JsonProvider;
 import io.quarkiverse.loggingjson.JsonWritingUtils;
 import io.quarkiverse.loggingjson.StringBuilderWriter;
+import io.quarkiverse.loggingjson.config.Config;
 
 public class MessageWithErrorJsonProvider extends ExtFormatter implements JsonProvider, Enabled {
 
