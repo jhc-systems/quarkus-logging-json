@@ -6,15 +6,21 @@
 # Quarkus Logging Json
 Quarkus logging extension outputting the logging in json.
 
+## Version to use
+| Quarkus Version | Use version |
+|-------|-------|
+| 3.x.x | 3.x.x |
+| 2.x.x | 1.x.x, 2.x.x |
+
 # Configuration
-The extension is enabled by default, when added to the project.
-Can be disabled using configuration: `quarkus.log.console.json=false`
+The extension is enabled by default for console, when added to the project.
+Console logging can be disabled using configuration: `quarkus.log.json.console.enable=false`
 
 To see additional configuration options take a look at [Config](https://quarkiverse.github.io/quarkiverse-docs/quarkus-logging-json/dev/index.html)
 
 ## Elastic Common Scheme
 ```properties
-quarkus.log.console.json.log-format=ecs
+quarkus.log.json.log-format=ecs
 ```
 
 ## Google Cloud Platform Scheme
@@ -26,10 +32,10 @@ quarkus.log.console.json.log-format=gcp
 # Add additional fields to all log messages
 If you want to add a static field to all the log message, that is possible using the configuration.
 ```properties
-quarkus.log.console.json.additional-field.serviceName.value=service-a
+quarkus.log.json.additional-field.serviceName.value=service-a
 # type is by default STRING - Other is INT, LONG, FLOAT, DOUBLE 
-quarkus.log.console.json.additional-field.buildNumber.type=INT
-quarkus.log.console.json.additional-field.buildNumber.value=42
+quarkus.log.json.additional-field.buildNumber.type=INT
+quarkus.log.json.additional-field.buildNumber.value=42
 ```
 
 # Structured argument
@@ -46,7 +52,7 @@ If you want to add your own custom way to handle the LogRecords.
 You can create your own implementations of `io.quarkiverse.loggingjson.JsonProvider`, and provide it using CDI.
 Example implementation:
 ```java
-import javax.inject.Singleton;
+import jakarta.inject.Singleton;
 import java.io.IOException;
 
 import io.quarkiverse.loggingjson.JsonProvider;
