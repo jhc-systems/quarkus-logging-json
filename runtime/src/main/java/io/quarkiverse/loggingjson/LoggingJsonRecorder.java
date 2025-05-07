@@ -41,8 +41,8 @@ public class LoggingJsonRecorder {
 
         if (config.logFormat == Config.LogFormat.ECS) {
             providers = ecsFormat(config);
-        }
-        if (config.logFormat == Config.LogFormat.GCP) {
+        } else if (config.logFormat == Config.LogFormat.GCP) {
+            new Exception("set to gcp format").printStackTrace();
             providers = gcpFormat(config);
         } else {
             providers = defaultFormat(config);
